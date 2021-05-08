@@ -21,3 +21,34 @@
         Employees = EmpRepository.SelectAll();
     }
 }
+
+<h2>List of Employees</h2>
+<h3 class="text-danger">@Message</h3>
+<a href="/employees/insert" class="btn btn-link btn-success">Insert</a>
+<br /><br />
+<table class="table">
+    <tr>
+        <th>EmployeeId</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Title</th>
+        <th>Country</th>
+        <th colspan="2">Actions</th>
+    </tr>
+    @foreach(var item in Employees)
+    {
+<tr>
+    <td>@item.EmployeeID</td>
+    <td>@item.FirstName</td>
+    <td>@item.LastName</td>
+    <td>@item.Title</td>
+    <td>@item.Country</td>
+    <td>
+        <a href="/employees/update/@item.EmployeeID" class="btn btn-warning">Update</a>
+    </td>
+    <td>
+        <a href="/employees/delete/@item.EmployeeID" class="btn btn-danger">Delete</a>
+    </td>
+</tr>
+    }
+</table>
