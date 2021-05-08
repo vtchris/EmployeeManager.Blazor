@@ -6,8 +6,18 @@
 @inject NavigationManager UriHelper
 @inject IEmployeeRepository EmpRepository
 
-<h3>List</h3>
-
 @code {
+    List<Employee> Employees;
+    string Message { get; set; }
 
+    protected override void OnInitialized()
+    {
+        var uri = new Uri(UriHelper.Uri);
+        if(QueryHelpers.ParseQuery(uri.Query).Count > 0)
+        {
+            Message = QueryHelpers.ParseQuery(uri.Query).First().Value;
+        }
+
+        Employees = EmpRepository.SelectAll();
+    }
 }
