@@ -1,0 +1,25 @@
+﻿@page "/Employees/Update/{EmployeeID:int}"
+@inject IEmployeeRepository EmpRepository
+
+<h3>Update</h3>
+
+@code {
+    [Parameter]
+    public int EmployeeID { get; set; }
+
+    Employee EmployeeModel { get; set; }
+    List<string> Countries { get; set; }
+    string Message { get; set; }
+
+    protected override void OnInitialized()
+    {
+        EmployeeModel = EmpRepository.SelectByID(EmployeeID);
+        Countries = EmpRepository.SelectCountries();
+    }
+
+    private void OnSaveClick()
+    {
+        EmpRepository.Update(EmployeeModel);
+        Message = "Employee Updated Successfully";
+    }
+}
