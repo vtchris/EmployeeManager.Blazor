@@ -1,0 +1,22 @@
+﻿@page "/Employees/Delete/{EmployeeID:int}"
+@inject NavigationManager UriHelper
+@inject IEmployeeRepository EmpRepository
+
+@code {
+    [Parameter]
+    public int EmployeeId { get; set; }
+    Employee EmployeeModel { get; set; }
+    string Message { get; set; }
+
+    protected override void OnInitialized()
+    {
+        EmployeeModel = EmpRepository.SelectByID(EmployeeId);
+    }
+
+    private void OnDeleteClick()
+    {
+        EmpRepository.Delete(EmployeeId);
+        Message = "Employee Deleted Successfully";
+        UriHelper.NavigateTo($"/employees/list?Message={Message}");
+    }
+}
