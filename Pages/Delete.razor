@@ -20,3 +20,52 @@
         UriHelper.NavigateTo($"/employees/list?Message={Message}");
     }
 }
+
+<h2>Delete Existing Employee</h2>
+<h3 class="text-danger">Warning: You are about to delete an employee</h3>
+
+<form>
+    <table class="table">
+        <tr>
+            <td><label>Employee ID</label></td>
+            <td>@EmployeeModel.EmployeeID</td>
+        </tr>
+        <tr>
+            <td><label>First Name</label></td>
+            <td>@EmployeeModel.FirstName</td>
+        </tr>
+        <tr>
+            <td><label>Last Name</label></td>
+            <td>@EmployeeModel.LastName</td>
+        </tr>
+        <tr>
+            <td><label>Title</label></td>
+            <td>@EmployeeModel.Title</td>
+        </tr>
+        <tr>
+            <td><label>Birth Date</label></td>
+            <td>@EmployeeModel.BirthDate</td>
+        </tr>
+        <tr>
+            <td><label>Hire Date</label></td>
+            <td>@EmployeeModel.HireDate</td>
+        </tr>
+        <tr>
+            <td><label>Country</label></td>
+            <td>@EmployeeModel.Country</td>
+        </tr>
+        <tr>
+            <td><label>Notes</label></td>
+            <td>@EmployeeModel.Notes</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="button" @onclick="OnDeleteClick" class="btn btn-danger">DELETE</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<br />
+<br />
+<a href="/employees/list" class="btn btn-light btn-info">Back to Employee Listing</a>
