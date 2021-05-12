@@ -20,7 +20,7 @@ namespace EmployeeManager.Blazor.Pages.Security
             this.signInManager = signInManager;
         }
         
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
             await signInManager.SignOutAsync();
             return RedirectToPage("/Security/SignIn");

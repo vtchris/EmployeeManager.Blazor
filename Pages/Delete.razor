@@ -1,6 +1,7 @@
 ﻿@page "/Employees/Delete/{EmployeeID:int}"
 @inject NavigationManager UriHelper
 @inject IEmployeeRepository EmpRepository
+@attribute [Authorize(Roles = "Manager")]
 
 @code {
     [Parameter]

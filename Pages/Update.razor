@@ -1,5 +1,6 @@
 ﻿@page "/Employees/Update/{EmployeeID:int}"
 @inject IEmployeeRepository EmpRepository
+@attribute [Authorize(Roles = "Manager")]
 
 <h3>Update</h3>
 

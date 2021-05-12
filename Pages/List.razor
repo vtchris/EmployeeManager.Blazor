@@ -5,6 +5,7 @@
 <!-- Inject a class, plus a name assigned to the property -->
 @inject NavigationManager UriHelper
 @inject IEmployeeRepository EmpRepository
+@attribute [Authorize(Roles = "Manager")]
 
 @code {
     List<Employee> Employees;

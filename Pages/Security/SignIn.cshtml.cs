@@ -34,7 +34,8 @@ namespace EmployeeManager.Blazor.Pages.Security
                     SignInData.UserName, SignInData.Password, SignInData.RememberMe, false);
 
                 if (result.Succeeded)
-                    return RedirectToPage("/EmployeeManager/List");
+                    // route must match route on the @page List.razor
+                    return Redirect("/Employees/List");
                 else
                     ModelState.AddModelError("", "Invalid username or password");
             }

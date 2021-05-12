@@ -10,5 +10,12 @@
 
     <br />
     <hr />
+
+    <AuthorizeView>
+        <Authorized>
+            <h2>You are signed in as @context.User.Identity.Name</h2>
+            <a href="/security/signout" class="btn btn-link btn-warning">Sign Out</a>
+        </Authorized>
+    </AuthorizeView>
 </main>
 
